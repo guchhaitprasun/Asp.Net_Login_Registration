@@ -21,22 +21,19 @@ namespace LoginRegisterMVCProject.Controllers
         public ActionResult Register(AppUserDTO appUser, HttpPostedFileBase image)
         {
             RegistrationManager registrationManager = new RegistrationManager();
-            byte[] profilePictureByteArray = null;
 
-            if (image != null)
+            //Getting base 64 sring fro image
+            byte[] profilePictureByteArray = CreateBase64String(image);
+
+            if(profilePictureByteArray.Length > 0)
             {
-                profilePictureByteArray = new byte[image.ContentLength];
-                image.InputStream.Read(profilePictureByteArray, 0, profilePictureByteArray.Length);
+                bool isRegistered = registrationManager.RegisterUser(appUser, profilePictureByteArray);
+                if (isRegistered)
+                {
+                    LoginUserDTO user = GetUserLoginCredentials(appUser.UserName, appUser.Password);
+                    return RedirectToAction("Login", "UserLogin");
+                }
             }
-
-            bool isRegistered = registrationManager.RegisterUser(appUser, profilePictureByteArray);
-
-            if (isRegistered)
-            {
-                LoginUserDTO user = GetUserLoginCredentials(appUser.UserName, appUser.Password);
-                return new UserLoginController().Login(user);
-            }
-
             return View("Error");
 
         }
@@ -51,6 +48,17 @@ namespace LoginRegisterMVCProject.Controllers
             }
 
             return user;
+        }
+
+        private byte[] CreateBase64String(HttpPostedFileBase data)
+        {
+            byte[] imageDataByteArray = new byte[0];
+            if (data != null && data.ContentType.Contains("image") && data.ContentLength < 200000)
+            {
+                imageDataByteArray = new byte[data.ContentLength];
+                data.InputStream.Read(imageDataByteArray, 0, imageDataByteArray.Length);
+            }
+            return imageDataByteArray;
         }
         //// GET: UserRegistration/Details/5
         //public ActionResult Details(int id)

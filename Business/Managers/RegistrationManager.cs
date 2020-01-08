@@ -19,7 +19,7 @@ namespace Business
             string profileInBase64String = Convert.ToBase64String(profileImage, 0, profileImage.Length);
 
             //Insert base 64 image string to appUser DTO
-            appUser.ProfilePicture = profileInBase64String;
+            appUser.ProfilePicture = "data:image/jpeg;base64, "+profileInBase64String;
 
             //Generate user name for the user
             appUser.UserName = GenerateUserName(appUser.EmailAddress);
