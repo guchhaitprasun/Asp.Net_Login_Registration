@@ -9,6 +9,13 @@ namespace Shared.ApplicationDTOs
 {
     public class LoginUserDTO
     {
+        public LoginUserDTO()
+        {
+            userId = 0;
+        }
+
+        public int userId { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }

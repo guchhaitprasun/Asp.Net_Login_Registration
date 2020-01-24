@@ -22,5 +22,6 @@ namespace Data.DatabaseEntity
         public string PasswordHash { get; set; }
         public string UserName { get; set; }
         public bool IsActive { get; set; }
+        public System.DateTime DateOfRegistration { get; set; }
     }
 }

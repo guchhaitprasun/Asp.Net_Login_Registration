@@ -31,7 +31,7 @@ namespace LoginRegisterMVCProject.Controllers
                 if (isRegistered)
                 {
                     LoginUserDTO user = GetUserLoginCredentials(appUser.UserName, appUser.Password);
-                    return RedirectToAction("Login", "UserLogin");
+                    return RedirectToAction("Index", "Playground");
                 }
             }
             return View("Error");
@@ -60,76 +60,5 @@ namespace LoginRegisterMVCProject.Controllers
             }
             return imageDataByteArray;
         }
-        //// GET: UserRegistration/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
-        //// GET: UserRegistration/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: UserRegistration/Create
-        //[HttpPost]
-        //public ActionResult Create(FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add insert logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: UserRegistration/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: UserRegistration/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: UserRegistration/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: UserRegistration/Delete/5
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }

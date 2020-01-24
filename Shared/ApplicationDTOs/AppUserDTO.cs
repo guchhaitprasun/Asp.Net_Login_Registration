@@ -9,6 +9,11 @@ namespace Shared.ApplicationDTOs
 {
     public class AppUserDTO
     {
+        public AppUserDTO()
+        {
+            DateOfjoin = DateTime.Today;
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -33,6 +38,8 @@ namespace Shared.ApplicationDTOs
 
         public string UserName { get; set; }
         public bool IsActive { get; set; }
+
+        public DateTime DateOfjoin { get; set; }
     }
 }
 

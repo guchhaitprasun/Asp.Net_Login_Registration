@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Controllers\UserLoginController.cs" />
     <Compile Include="Controllers\UserRegistrationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +177,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\UserRegistration\Register.cshtml" />
     <Content Include="Views\UserLogin\Login.cshtml" />
+    <Content Include="Views\Playground\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿CREATE TABLE [dbo].[ApplicationUser]
+﻿
+CREATE TABLE [dbo].[ApplicationUser]
 (
 	[Id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
 	[FirstName] NVARCHAR(50) NULL, 
@@ -7,5 +8,6 @@
 	[ProfilePicture] NVARCHAR(MAX) NULL, 
 	[PasswordHash] NVARCHAR(MAX) NOT NULL, 
 	[UserName] NVARCHAR(50) NULL, 
-	[IsActive] BIT NOT NULL
+	[IsActive] BIT NOT NULL, 
+    [DateOfRegistration] DATETIME NOT NULL
 )

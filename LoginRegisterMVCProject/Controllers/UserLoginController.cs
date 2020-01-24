@@ -1,4 +1,5 @@
-﻿using Shared.ApplicationDTOs;
+﻿using Business.Managers;
+using Shared.ApplicationDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,19 @@ namespace LoginRegisterMVCProject.Controllers
         [HttpPost]
         public ActionResult Login(LoginUserDTO user)
         {
-            return View();
+            LoginManager loginManager = new LoginManager();
+            LoginUserDTO authenticatedUser = new LoginUserDTO();
+            authenticatedUser = loginManager.AuthenticateUser(user);
+
+            if (authenticatedUser.UserName != null && authenticatedUser.userId > 0)
+            {
+
+                //store data in cache
+                return RedirectToAction("Index", "Playground");
+            }
+            else {
+                return View("Error");
+            }
         }
     }
 }

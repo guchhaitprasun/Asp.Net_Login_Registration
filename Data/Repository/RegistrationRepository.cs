@@ -29,6 +29,7 @@ namespace Data.Repository
                     tempUser.PasswordHash = appUser.Password;
                     tempUser.IsActive = true;
                     tempUser.UserName = appUser.UserName;
+                    tempUser.DateOfRegistration = appUser.DateOfjoin;
 
                     // inser new entry to the database
                     _dbContext.ApplicationUsers.Add(tempUser);
